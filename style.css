@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+:root{
+    --premiereColor:black;
+    --deuxiemeColor:white;
+
+    --premierFontFamily:Arial, Helvetica, sans-serif;
+    --deuxiemeFontFamily:'Dancing Script', cursive;
+
+    --fontSizeTextOriginal:calc(12px + 1vw);
+    --fontSizeTitre:calc(30px + 2vw);
+
+    --background-color:#dbb279;
+
+    --marginEntreLesTitres:20px 0px;
+    --marginBottomPourLesP:10px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:var(--premierFontFamily);
+    font-size:var(--fontSizeTextOriginal);
+    /* background-color:#4eca4e */
+    background-color:var(--background-color);
+    width:100%;
+    /* overflow-x:hidden; */
+   
+}
+
+header{
+    width:100%;
+    height:500px;
+    position:relative;
+}
+
+.menu{
+    position:relative;
+    width:100%;
+    height:100%;
+   
+
+}
+
+.hamberger{
+    position:absolute;
+    top:20px;
+    right:50px;
+    width:30px;
+    height:24px;
+    /* background-color:var(--deuxiemeColor); */
+   
+    z-index:2;
+    cursor:pointer;
+    position:fixed;
+    display:none;
+   
+   
+    /* position:relative; */
+}
+
+.hamberger span:nth-child(1){
+    position:absolute;
+    top:0px;
+    left:0;
+    width:100%;
+    height:3px;
+    background-color: var(--deuxiemeColor);
+    transition:transform 1s;
+    
+  
+
+}
+
+.hamberger span:nth-child(2){
+    position:absolute;
+    top:8px;
+    left:0;
+    width:100%;
+    height:3px;
+    background-color:var(--deuxiemeColor);
+   
+}
+
+.hamberger span:nth-child(3){
+    position:absolute;
+    top:16px;
+    left:0;
+    width:100%;
+    height:3px;
+    background-color:var(--deuxiemeColor);
+    cursor:pointer;
+    transition:transform 1s;
+}
+
+.hamberger.active + ul {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    border-bottom:2px solid var(--deuxiemeColor);
+    top:0;
+    left:0;
+    width:100%;
+    height:50%;
+    background-color: #63601f;
+    padding:15px 0;
+    z-index:1;
+}
+
+.hamberger.active span:nth-child(1){
+    transform:translateY(8px) rotate(-45deg) ;
+}
+
+.hamberger.active span:nth-child(2){
+    display:none;
+}
+
+.hamberger.active span:nth-child(3){
+    transform:translateY(-8px) rotate(45deg);
+}
+
+
+
+h1{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:1;
+    color:var(--deuxiemeColor);
+    font-family: var(--deuxiemeFontFamily);
+    font-size:var(--fontSizeTitre);
+    text-align: center;
+}
+
+video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:500px;
+    z-index:-1;
+    
+    object-fit:cover;
+}
+
+ul{
+    display:flex;
+    justify-content:space-evenly;
+    border-bottom:2px solid var(--deuxiemeColor);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background-color: #63601f;
+    padding:15px 0;
+    z-index:1;
+}
+
+
+ul li{
+    list-style-type:none;
+    transition:transform 0.5s;
+}
+
+ul li a{
+    text-decoration:none;
+    color:var(--deuxiemeColor);
+    cursor:pointer;
+}
+
+ul li:hover{
+    transform:scale(1.2);
+}
+
+/*Choses en commun*/
+
+h2{
+    text-align:center;
+    font-family:var(--deuxiemeFontFamily);
+    font-size:var(--fontSizeTitre);
+    margin:var(--marginEntreLesTitres);
+    transform:translateX(200%);
+    transition:transform 0.8s;
+    position:relative;
+
+}
+
+
+
+img{
+    transform:translateX(-500%);
+    transition:transform 0.5s
+}
+
+h2.premier{
+    transform:translateX(0%);
+    visibility:hidden;
+}
+
+
+img.premier{
+    transform:translateX(0)
+}
+
+h2.premier:before{
+    content:"Image d'automne";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    visibility:visible;
+    transition:transform 0.5s;
+    animation-name:arriverADroite;
+    animation-duration:0.8s;
+    animation-direction:forwards; 
+    animation-timing-function: linear;
+}
+
+p.premier:before{
+    content:"Passez votre souris sur les cartes pour faire apparaitre les citations";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    visibility:visible;
+    transition:transform 0.5s;
+    animation-name:arriverAGauche;
+    animation-duration:0.8s;
+    animation-direction:forwards; 
+    animation-timing-function: linear;
+
+}
+
+@keyframes arriverADroite{
+    0%{
+        left:100%;
+    }
+
+    100%{
+        left:0%;
+    }
+}
+
+@keyframes arriverAGauche{
+    0%{
+        left:-100%;
+    }
+
+    100%{
+        left:0;
+    }
+}
+
+
+
+
+
+
+
+
+.voir{
+    transform:translateX(0)
+}
+
+/*Automne*/
+
+
+/*en commun*/
+
+.container{
+    width:100%;
+    height:100%;
+}
+
+.containerAutomne,.containerHiver{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.containerAutomne:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+  
+    width:10%;
+    height:100%;
+    background-image: url(img/imageAutomne/png2.png);
+    z-index:-1;
+    background-size:contain;
+    background-repeat:no-repeat
+
+   
+}
+
+.containerAutomne:after{
+    content:"";
+    position:absolute;
+    top:70%;
+    right:0;
+  
+    width:20%;
+    height:100%;
+    background-image: url(img/imageAutomne/png1.png);
+    z-index:-1;
+    background-size:contain;
+    background-repeat:no-repeat
+   
+   
+}
+
+
+
+.imageAutomne,
+.imageHiver,
+.imagePrintemps,
+.imageEte{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,500px);
+    grid-column-gap:10px;
+    grid-row-gap:10px;
+    height:100%;
+    justify-content:center;
+   
+
+}
+
+.containerAutomne img,
+.containerHiver img,
+.containerPrintemps img,
+.containerEte img{
+    width:100%;
+    object-fit:cover;
+    height:100%;
+    cursor:pointer;
+}
+
+
+
+/*fin de en commun*/
+
+/*media queries*/
+
+
+
+@media screen and (max-width:753px){
+    .hamberger{
+        display:block;
+    }
+
+    ul{
+        display:none;
+    }
+
+    .imageAutomne,
+    .imageHiver,
+    .imagePrintemps,
+    .imageEte{
+  
+    grid-template-columns:repeat(auto-fill,300px);
+ 
+}
+}
+
+@media screen and (max-width:380px){
+    .imageAutomne,
+    .imageHiver,
+    .imagePrintemps,
+    .imageEte{
+  
+    grid-template-columns:repeat(auto-fill,200px);
+    }
+}
+
+
+
+
+
+
+
+
+
