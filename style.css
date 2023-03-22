@@ -28,7 +28,7 @@ body{
     /* background-color:#4eca4e */
     background-color:var(--background-color);
     width:100%;
-    /* overflow-x:hidden; */
+     overflow-x:hidden; 
    
 }
 
